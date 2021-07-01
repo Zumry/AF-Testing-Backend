@@ -1,0 +1,35 @@
+{
+  "name": "cmsbackend",
+  "version": "1.0.0",
+  "description": "Backend of Conference Management System",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkeelMNM/ConferenceMS-Backend-Development.git"
+  },
+  "author": "M.N.M Akeel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkeelMNM/ConferenceMS-Backend-Development/issues"
+  },
+  "homepage": "https://github.com/AkeelMNM/ConferenceMS-Backend-Development#readme",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.0.0",
+    "dotenv": "^10.0.0",
+    "koa": "^2.13.1",
+    "mongoose": "^5.12.12"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.933.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
+    "mongodb": "^3.6.6",
+    "uuid": "^8.3.2"
+  }
+}
