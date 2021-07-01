@@ -12,20 +12,20 @@ const verifyReviewer = async (ctx, next) =>{
     if (!ctx.headers.authorization) ctx.throw(403, 'No token.');
     const token = ctx.headers.authorization.split(' ')[1];
 
-        const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
-        const User = await getUserById(payload.sub);
+    const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const User = await getUserById(payload.sub);
 
-        if(User.error === 'error'){
-            let err = new Error('Invalid Data!')
-            err.status = 404
-            return next(err)
-        }
+    if(User.error === 'error'){
+        let err = new Error('Invalid Data!')
+        err.status = 404
+        return next(err)
+    }
 
-        if(User.type !== 'Reviewer'){
-            let errorMessage = 'You are not authorized to perform this operation!'
-            const statusCode = 403
-            ctx.throw(statusCode,errorMessage)
-        }
+    if(User.type !== 'Reviewer'){
+        let errorMessage = 'You are not authorized to perform this operation!'
+        const statusCode = 403
+        ctx.throw(statusCode,errorMessage)
+    }
 
     await next();
 }
