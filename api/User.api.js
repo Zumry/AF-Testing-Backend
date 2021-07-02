@@ -98,8 +98,8 @@ const updateUser = async (id, {email, password}) => {
                 type:User.type,
                 password:User.password
             }
-            console.log("Hello I am Email");
             return await update(id,user);
+
         }else if(decrypt(User.password) !== password && email === ''){
             const hashedPassword = encrypt(password);
             const user = {
@@ -108,8 +108,8 @@ const updateUser = async (id, {email, password}) => {
                 type:User.type,
                 password:hashedPassword
             }
-            console.log("Hello I am Password");
             return await update(id,user);
+
         }else{
             return {msg:'error User'};
         }
