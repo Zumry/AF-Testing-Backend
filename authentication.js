@@ -109,7 +109,7 @@ const verifyAdmin = async (ctx, next) =>{
         return next(err)
     }
 
-    if(User.type !== 'Editor'){
+    if(User.type !== 'Administrator'){
         let errorMessage = 'You are not authorized to perform this operation!'
         const statusCode = 403
         ctx.throw(statusCode,errorMessage)
