@@ -16,9 +16,9 @@ const verifyReviewer = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'Reviewer'){
@@ -38,9 +38,9 @@ const verifyResearcher = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'Researcher'){
@@ -60,9 +60,9 @@ const verifyWorkshopConductor = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'WorkshopConductor'){
@@ -82,9 +82,9 @@ const verifyEditor = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'Editor'){
@@ -104,9 +104,9 @@ const verifyAdmin = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'Administrator'){
@@ -126,9 +126,9 @@ const verifyAttendees = async (ctx, next) =>{
     const User = await getUserById(payload.sub);
 
     if(User.error === 'error'){
-        let err = new Error('Invalid Data!')
-        err.status = 404
-        return next(err)
+        let errorMessage = 'Invalid Data!'
+        const statusCode = 404
+        ctx.throw(statusCode,errorMessage)
     }
 
     if(User.type !== 'Attendee'){
