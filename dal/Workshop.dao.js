@@ -5,8 +5,8 @@ const ObjectId = require("mongodb").ObjectId;
     /**
      * Storing Workshop proposal
      */
-    const save = async ({userID, presenterName, workShopTitle, email, affiliation, contactNumber, conductorNames, submittedDate, proposalStatus, fileLocation}) =>{
-        const result = await workShop.insertOne({userID, presenterName, workShopTitle, email, affiliation, contactNumber, conductorNames, submittedDate, proposalStatus, fileLocation});
+    const save = async ({userID, presenterName, workShopTitle, affiliation, contactNumber, conductorNames, submittedDate, proposalStatus, fileLocation}) =>{
+        const result = await workShop.insertOne({userID, presenterName, workShopTitle, affiliation, contactNumber, conductorNames, submittedDate, proposalStatus, fileLocation});
         return  result.ops[0];
     }
 
@@ -40,8 +40,8 @@ const ObjectId = require("mongodb").ObjectId;
         return await workShop.deleteOne({_id:ObjectId(id)});
     }
 
-    const update = async (id ,{userID, presenterName, workShopTitle, email, affiliation,contactNumber, conductorNames, submittedDate,proposalStatus, fileLocation}) =>{
-        const result = await workShop.replaceOne({_id:ObjectId(id)},{userID, presenterName, workShopTitle, email, affiliation, contactNumber, conductorNames, submittedDate,proposalStatus, fileLocation});
+    const update = async (id ,{userID, presenterName, workShopTitle, affiliation,contactNumber, conductorNames, submittedDate,proposalStatus, fileLocation}) =>{
+        const result = await workShop.replaceOne({_id:ObjectId(id)},{userID, presenterName, workShopTitle, affiliation, contactNumber, conductorNames, submittedDate,proposalStatus, fileLocation});
         return  result.ops[0];
     }
 

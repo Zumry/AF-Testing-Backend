@@ -11,7 +11,7 @@ client.connect(error => {
         console.error(error);
         process.exit(-1)
     }
-    console.log('Successfully connected to Mongo DB'); });
+    console.log('Successfully connected to MongoDB Atlas'); });
 
 
 module.exports = client;
