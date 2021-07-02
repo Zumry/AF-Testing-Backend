@@ -5,7 +5,8 @@
 
 
 //create the DataBase and the Collection
-const posts = require('./').db('conferenceMT').collection('conference');
+let posts;
+setTimeout(() =>{posts = require('./').db('conferenceMT').collection('conference')},1000)
 const ObjectId = require("mongodb").ObjectId;
 
 //insert the data into Database

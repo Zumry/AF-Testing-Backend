@@ -1,4 +1,5 @@
-const workShop = require('./').db('conferenceMT').collection('WorkshopColl');
+let workShop;
+setTimeout(() =>{ workShop = require('./').db('conferenceMT').collection('WorkshopColl')},1000)
 const ObjectId = require("mongodb").ObjectId;
 
     /**
