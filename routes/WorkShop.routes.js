@@ -1,7 +1,7 @@
 const Router = require('@koa/router');
 
 const {addWorkShopPaper, getAllWorkShop, getWorkShopByUserId, getWorkShopById, updateWorkShop,approvalStatus, removeWorkShopById} = require('../api/WorkShop.api');
-const{verifyWorkshopConductor} = require('../authentication');
+const{verifyWorkshopConductor,verifyReviewer} = require('../authentication');
 
 const router = new Router({
     prefix:'/workShop'
@@ -54,7 +54,7 @@ router.put('/:id', verifyWorkshopConductor, async ctx =>{
 /**
  * Route for approval of Workshop proposal
  */
-router.put('/approval/:id',verifyWorkshopConductor, async ctx => {
+router.put('/approval/:id',verifyReviewer, async ctx => {
     const id = ctx.params.id;
     let workShop = ctx.request.body;
     workShop = await approvalStatus(id,workShop);
