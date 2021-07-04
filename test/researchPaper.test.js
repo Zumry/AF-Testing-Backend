@@ -3,7 +3,7 @@ const request = require('supertest');
 
 let user ={
     userID:"60dda145e2c32a077ca26e4c",
-    token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGRkYTE0NWUyYzMyYTA3N2NhMjZlNGMiLCJpYXQiOjE2MjU0MjIzMDcsImV4cCI6MTYyNTQyNTkwN30.1L0Dg1SVOF5etqAm_G_dSd3I0QOK2RBpNBnBgPi-nqc"
+    token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGRkYTE0NWUyYzMyYTA3N2NhMjZlNGMiLCJpYXQiOjE2MjU0Mjc4NDUsImV4cCI6MTYyNTQzMTQ0NX0.V_GJFCH6X8G_rlQ2IxhqLiXvHbPT74bGtZEXu0xe1gg"
 };
 
 describe('ResearchPaper Endpoints', () => {
@@ -14,6 +14,7 @@ describe('ResearchPaper Endpoints', () => {
                 password:'123456'
             })
         expect(res.statusCode).toEqual(201);
+        console.log(res.text)
     });
    it('should create a new research submission', async () => {
         const res = await request(app)
@@ -40,4 +41,18 @@ describe('ResearchPaper Endpoints', () => {
         const res = await request(app).delete(`/researchPaper/${contactNumber}`);
         expect(res.statusCode).toEqual(200);
     });*/
+});
+
+describe('Payment for ResearchPaper Endpoints', () => {
+    it('Researcher make payment for publish Research paper', async () => {
+        const res = await request(app)
+            .put(`/researchPaper/payment/${user.userID}`)
+            .set('Authorization', 'Bearer '+user.token)
+            .send({
+                pStatus:"Approved",
+                payment:20000
+
+            });
+        expect(res.statusCode).toEqual(200);
+    });
 });
