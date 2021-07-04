@@ -6,7 +6,7 @@ let user ={
     token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGRkYTE0NWUyYzMyYTA3N2NhMjZlNGMiLCJpYXQiOjE2MjU0Mjc4NDUsImV4cCI6MTYyNTQzMTQ0NX0.V_GJFCH6X8G_rlQ2IxhqLiXvHbPT74bGtZEXu0xe1gg"
 };
 
-describe('Reviewer ResearchPaper Approval Endpoints', () => {
+describe('Reviewer Login Endpoints', () => {
     it('Approval of Research paper submission', async () => {
         const res = await request(app).post(`/user/login`)
             .send({
@@ -16,6 +16,9 @@ describe('Reviewer ResearchPaper Approval Endpoints', () => {
         expect(res.statusCode).toEqual(201);
         console.log(res.text)
     });
+});
+
+describe('Reviewer ResearchPaper Approval Endpoints', () => {
     it('Approve research submission', async () => {
         const res = await request(app)
             .post(`/researchPaper/approval/${user.userID}`)

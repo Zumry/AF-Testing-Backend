@@ -3,28 +3,31 @@ const request = require('supertest');
 
 let user ={
     userID:"60dda145e2c32a077ca26e4c",
-    token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGRkYTE0NWUyYzMyYTA3N2NhMjZlNGMiLCJpYXQiOjE2MjU0Mjc4NDUsImV4cCI6MTYyNTQzMTQ0NX0.V_GJFCH6X8G_rlQ2IxhqLiXvHbPT74bGtZEXu0xe1gg"
+    token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MGRkYTE0NWUyYzMyYTA3N2NhMjZlNGMiLCJpYXQiOjE2MjU0MzUxMzgsImV4cCI6MTYyNTQzODczOH0.gAeiKJRs5RrzP8OwLS0LONYS0c6prboKcVfPZSHfiJg"
 };
 
-describe('ResearchPaper Endpoints', () => {
+describe('Researcher Login Endpoints', () => {
     it('should fetch token for Researcher Login', async () => {
         const res = await request(app).post(`/user/login`)
             .send({
                 email:'Kamal@gmail.com',
-                password:'123456'
+                password:'123456789'
             })
         expect(res.statusCode).toEqual(201);
         console.log(res.text)
     });
+});
+
+describe('ResearchPaper Endpoints', () => {
    it('should create a new research submission', async () => {
         const res = await request(app)
             .post('/researchPaper/')
             .set('Authorization', 'Bearer '+user.token)
             .send({
                 userID:user.userID,
-                authorName:"Sunil2",
-                paperTitle:"JavaScript3",
-                email:"Sunil2@gmail.com",
+                authorName:"Kamal",
+                paperTitle:"New Findings in Swift language",
+                email:"Kamal@gmail.com",
                 researchPFileLocation:"Location"
             });
         expect(res.statusCode).toEqual(200);
