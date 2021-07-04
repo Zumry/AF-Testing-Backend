@@ -4,7 +4,7 @@
   "description": "Backend of Conference Management System",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/researchPaper.test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "@koa/multer": "^3.0.0",
     "@koa/router": "^10.0.0",
     "dotenv": "^10.0.0",
+    "jest": "^27.0.6",
     "koa": "^2.13.1",
     "mongoose": "^5.12.12"
   },
@@ -30,6 +31,7 @@
     "koa-body": "^4.2.0",
     "koa-bodyparser": "^4.3.0",
     "mongodb": "^3.6.6",
+    "supertest": "^6.1.3",
     "uuid": "^8.3.2"
   }
 }
