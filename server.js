@@ -36,10 +36,12 @@ app.use(ctx =>{
     ctx.body = "Conference Management System Backend";
 });
 
-app.listen(3000, err => {
+const server = app.listen(3000, err => {
    if(err) {
        console.log(err);
        return;
    }
     console.log('ConferenceMS Application is up and running');
 });
+
+module.exports = server;
