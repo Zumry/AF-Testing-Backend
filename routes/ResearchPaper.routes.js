@@ -67,8 +67,8 @@ router.put('/payment/:id', verifyResearcher, async ctx => {
     let id = ctx.params.id;
     let researchPayment = ctx.request.body;
     const pStatus = researchPayment.paymentStatus;
-    const payment = researchPayment.payment
-    let researchPaper = await paymentForSubmission(id,{pStatus,payment});
+    const amount = researchPayment.payment
+    let researchPaper = await paymentForSubmission(id,{pStatus,amount});
     ctx.body = researchPaper;
 })
 /**

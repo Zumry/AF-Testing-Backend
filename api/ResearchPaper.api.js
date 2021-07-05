@@ -94,10 +94,10 @@ const { save, getAll, getByUserId,getById, removeById, update} = require('../dal
      *  when the Researcher submission is approved and Researcher paying to present at conference
      */
     const paymentForSubmission = async (id,{pStatus,amount}) =>{
-        let ResearchPaper = await getResearchPaperById(id);
+        let ResearchPaper = await getResearchPaperByUserId(id);
         ResearchPaper.paymentStatus = pStatus
         ResearchPaper.payment = amount;
-        return await updateResearchApprovals(id,ResearchPaper);
+        return await updateResearchApprovals(ResearchPaper[0]._id,ResearchPaper[0]);
 
     }
 
